@@ -1,0 +1,19 @@
+{
+  "name": "login-with-dynamic-form",
+  "version": "0.0.6",
+  "peerDependencies": {
+    "@angular/common": "^10.0.14",
+    "@angular/core": "^10.0.14"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "main": "bundles/login-with-dynamic-form.umd.js",
+  "module": "fesm2015/login-with-dynamic-form.js",
+  "es2015": "fesm2015/login-with-dynamic-form.js",
+  "esm2015": "esm2015/login-with-dynamic-form.js",
+  "fesm2015": "fesm2015/login-with-dynamic-form.js",
+  "typings": "login-with-dynamic-form.d.ts",
+  "metadata": "login-with-dynamic-form.metadata.json",
+  "sideEffects": false
+}
