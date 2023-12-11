@@ -1,0 +1,11 @@
+{
+  "name": "dynamic-form-with-validation",
+  "version": "1.0.1",
+  "peerDependencies": {
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12"
+  },
+  "dependencies": {
+    "tslib": "^2.6.2"
+  }
+}

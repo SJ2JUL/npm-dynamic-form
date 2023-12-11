@@ -17,7 +17,7 @@ export interface IFormValidation {
 }
 
 @Component({
-  selector: "lib-login-with-dynamic-form",
+  selector: "dynamic-form",
   template: `
     <div class="form-container">
       <div class="card-title">
@@ -150,7 +150,7 @@ export interface IFormValidation {
     `
   ]
 })
-export class LoginWithDynamicFormComponent {
+export class DynamicFormWithValidationComponent {
   @Input() fieldList: Array<IFormField>;
   @Input() buttonLabel?: string = "Submit";
   @Output() formSubmit = new EventEmitter<any>();
@@ -169,7 +169,7 @@ export class LoginWithDynamicFormComponent {
   buildFormGroup() {
     const group = {};
     let validatorList = [];
-    this.fieldList.forEach(field => {
+    this.fieldList?.forEach(field => {
       if (field.validators.required) {
         validatorList.push(Validators.required);
       }

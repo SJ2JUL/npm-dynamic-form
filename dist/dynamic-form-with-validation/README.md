@@ -1,22 +1,22 @@
-# LoginWithValidation
+# dynamic-form-with-validation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
 
 ## Description
 
-An npm lib for dynamic-form
+An npm lib for dynamic-form-with-validation
 
 ## Usage
 
-Import `LoginWithDynamicFormModule` in your `app.module.ts` file
+Import `DynamicFormWithValidationModule` in your `app.module.ts` file
 
 ```
-import { LoginWithDynamicFormModule } from 'login-with-dynamic-form';
+import { DynamicFormWithValidationModule } from 'dynamic-form-with-validation';
 
 @NgModule({
   ...
   imports: [
-    LoginWithDynamicFormModule
+    DynamicFormWithValidationModule
   ],
   ...
 })
@@ -27,7 +27,7 @@ export class AppModule { }
 After import use it in your component as follows
 
 ```
-<lib-login-with-dynamic-form [fieldList]="fieldList" [buttonLabel]="'Login'" (formSubmit)="onSubmit($event)">
+<dynamic-form [fieldList]="fieldList" [buttonLabel]="'Login'" (formSubmit)="onSubmit($event)">
 ```
 
 `fieldList` is an Array of object with following interface

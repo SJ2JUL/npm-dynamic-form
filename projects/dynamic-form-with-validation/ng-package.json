@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/login-with-dynamic-form",
+  "dest": "../../dist/dynamic-form-with-validation",
   "lib": {
     "entryFile": "src/public-api.ts"
   }
