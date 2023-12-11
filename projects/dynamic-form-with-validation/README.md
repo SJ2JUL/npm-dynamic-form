@@ -10,7 +10,7 @@ An npm lib for dynamic-form-with-validation. This is the upgraded version of [lo
 
 Angular 10: [login-with-dynamic-form]https://www.npmjs.com/package/login-with-dynamic-form - https://www.npmjs.com/package/login-with-dynamic-form
 
-Angular 16: v1.0.1 
+Angular 16: v1.0.3
 
 ## Usage
 
@@ -80,4 +80,19 @@ fieldList = [
 
 ```
 
+Error messages can be overriden.
+Below is the interface for `errorMessage` input
+```
+{
+  required: string;
+  invalid: string;
+}
+```
+
+## Sample implementation
+
 Check here for sample implementation [login-app](https://github.com/SJ2JUL/login-app)
+
+## Keywords
+
+Angular, Typescript, Reactive-Forms, JSON
