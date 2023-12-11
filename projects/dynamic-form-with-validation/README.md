@@ -1,10 +1,16 @@
 # dynamic-form-with-validation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12
 
 ## Description
 
-An npm lib for dynamic-form-with-validation
+An npm lib for dynamic-form-with-validation. This is the upgraded version of [login-with-dynamic-form](https://www.npmjs.com/package/login-with-dynamic-form)
+
+### Version Track
+
+Angular 10: [login-with-dynamic-form]https://www.npmjs.com/package/login-with-dynamic-form - https://www.npmjs.com/package/login-with-dynamic-form
+
+Angular 16: v1.0.1 
 
 ## Usage
 
@@ -74,3 +80,4 @@ fieldList = [
 
 ```
 
+Check here for sample implementation [login-app](https://github.com/SJ2JUL/login-app)
