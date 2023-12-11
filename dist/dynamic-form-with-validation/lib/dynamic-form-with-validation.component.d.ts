@@ -13,15 +13,16 @@ export interface IFormValidation {
     pattern?: RegExp | string;
     email?: boolean;
 }
+export interface IErrorMessage {
+    required: string;
+    invalid: string;
+}
 export declare class DynamicFormWithValidationComponent {
     fieldList: Array<IFormField>;
     buttonLabel?: string;
+    errorMessages?: IErrorMessage;
     formSubmit: EventEmitter<any>;
-    loginForm: FormGroup;
-    errorMessages: {
-        required: string;
-        invalid: string;
-    };
+    formGroup: FormGroup;
     constructor();
     ngOnInit(): void;
     buildFormGroup(): FormGroup<{}>;
@@ -29,5 +30,5 @@ export declare class DynamicFormWithValidationComponent {
     isTouched(fieldName: any): boolean;
     onSubmit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<DynamicFormWithValidationComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<DynamicFormWithValidationComponent, "dynamic-form", never, { "fieldList": { "alias": "fieldList"; "required": false; }; "buttonLabel": { "alias": "buttonLabel"; "required": false; }; }, { "formSubmit": "formSubmit"; }, never, never, false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<DynamicFormWithValidationComponent, "dynamic-form", never, { "fieldList": { "alias": "fieldList"; "required": false; }; "buttonLabel": { "alias": "buttonLabel"; "required": false; }; "errorMessages": { "alias": "errorMessages"; "required": false; }; }, { "formSubmit": "formSubmit"; }, never, never, false, never>;
 }
