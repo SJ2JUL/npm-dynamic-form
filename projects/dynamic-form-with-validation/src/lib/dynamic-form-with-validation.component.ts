@@ -16,14 +16,16 @@ export interface IFormValidation {
   email?: boolean;
 }
 
+export interface IErrorMessage {
+  required: string;
+  invalid: string;
+}
+
 @Component({
   selector: "dynamic-form",
   template: `
     <div class="form-container">
-      <div class="card-title">
-        <h1>Login</h1>
-      </div>
-      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+      <form (ngSubmit)="onSubmit()" [formGroup]="formGroup">
         <div *ngFor="let field of fieldList" class="field-container">
           <label [attr.for]="field.name">{{ field.label }}</label>
           <input
@@ -36,21 +38,21 @@ export interface IFormValidation {
             class="error-message"
             *ngIf="isTouched(field.name) && !isValid(field.name)"
           >
-            <div *ngIf="loginForm.controls[field.name].errors.required">
-              {{ field.label }} {{ errorMessages.required }}
+            <div *ngIf="formGroup.controls[field.name].errors.required">
+              {{ errorMessages.required }}
             </div>
             <div
               *ngIf="
-                loginForm.controls[field.name].errors.email ||
-                loginForm.controls[field.name].errors.pattern
+                formGroup.controls[field.name].errors.email ||
+                formGroup.controls[field.name].errors.pattern
               "
             >
-              {{ errorMessages.invalid }} {{ field.label }}.
+              {{ errorMessages.invalid }}
             </div>
           </div>
         </div>
         <div class="btn-container">
-          <button type="submit" [disabled]="!loginForm.valid">
+          <button type="submit" [disabled]="!formGroup.valid">
             {{ buttonLabel }}
           </button>
         </div>
@@ -74,11 +76,8 @@ export interface IFormValidation {
         width: 30rem;
         box-shadow: 6px 6px 20px rgba(122, 122, 122, 0.212);
       }
-      .form-container .card-title {
-        width: 30%;
-      }
       .form-container form {
-        width: 70%;
+        width: 100%;
         padding: 0rem 0 2.3rem 1rem;
       }
       .form-container form label {
@@ -153,17 +152,17 @@ export interface IFormValidation {
 export class DynamicFormWithValidationComponent {
   @Input() fieldList: Array<IFormField>;
   @Input() buttonLabel?: string = "Submit";
-  @Output() formSubmit = new EventEmitter<any>();
-  public loginForm: FormGroup;
-  public errorMessages = {
-    required: "is a required field.",
-    invalid: "Please provide valid"
+  @Input() errorMessages?: IErrorMessage = {
+    required: "This is a required field.",
+    invalid: "Please provide valid details."
   };
+  @Output() formSubmit = new EventEmitter<any>();
+  public formGroup: FormGroup;
 
   constructor() { }
 
   ngOnInit() {
-    this.loginForm = this.buildFormGroup();
+    this.formGroup = this.buildFormGroup();
   }
 
   buildFormGroup() {
@@ -186,17 +185,17 @@ export class DynamicFormWithValidationComponent {
   }
 
   isValid(fieldName) {
-    return this.loginForm.controls[fieldName].valid;
+    return this.formGroup.controls[fieldName].valid;
   }
 
   isTouched(fieldName) {
-    return this.loginForm.controls[fieldName].touched;
+    return this.formGroup.controls[fieldName].touched;
   }
 
   onSubmit() {
     const updatedFormData = {};
     this.fieldList.forEach(field => {
-      updatedFormData[field.name] = this.loginForm.controls[field.name].value;
+      updatedFormData[field.name] = this.formGroup.controls[field.name].value;
     });
     this.formSubmit.emit(updatedFormData);
   }
